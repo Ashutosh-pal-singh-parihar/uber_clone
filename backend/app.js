@@ -1,5 +1,6 @@
 const dotenv = require("dotenv")
 dotenv.config()
+const cookiePasrser = require('cookie-parser')
 const cors = require('cors')
 const express = require("express")
 const connectToDB = require('./db/db')
@@ -12,6 +13,7 @@ connectToDB()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cookiePasrser())
 
 app.use("/users", userRoutes)
 
